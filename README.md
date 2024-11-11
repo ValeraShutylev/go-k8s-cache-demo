@@ -1,8 +1,9 @@
 # go-k8s-cache-demo
 
+Go k8 cache service is an application to store JSON-objects 'in-memory' key-based storage with an ability to restore data from the disk.
 
+[Requirements](/docs/Requirements.md)
 
-To run go-k8s-cache-demo
+[Architecture](/docs/Architecture.md)
 
-shell
-docker run -d -p 8080:8080 --name go-k8s-cache-demo -v <YOUR_STORAGE>:/app/cachefiles go-k8s-cache-demo:v1.0.0
+[Improvements](/docs/Improvements.md)
