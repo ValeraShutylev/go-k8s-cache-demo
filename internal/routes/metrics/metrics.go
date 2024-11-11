@@ -11,7 +11,7 @@ import (
 
 var MapLengthGauge  = prometheus.NewGauge(prometheus.GaugeOpts{
     Name: "memory_cache_items_count",
-    Help: "The current length of the map",
+    Help: "The current objects count in memory cache",
 })
 
 func init() {

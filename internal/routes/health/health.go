@@ -10,8 +10,8 @@ import (
 
 
 func HealthRoutes(rg *gin.RouterGroup, state *utils.GlobalState) {
-	rg.GET("/health", health)
-	rg.GET("/ready", ready)
+	rg.GET("/liveness", health)
+	rg.GET("/readiness", ready)
 }
 
 func health(ctx *gin.Context) {

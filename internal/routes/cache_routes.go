@@ -14,6 +14,7 @@ import (
 const ( 
 	ROOT_API = "/"
 	CACHE_API = "/objects"
+	PROBES_API = "/probes"
 	AUDIT_ENABLED = "AUDIT_ENABLED"
 )
 
@@ -54,7 +55,7 @@ func(r *Router) registerCacheRoutes() {
 }
 
 func(r *Router) registerHealthRoutes(state *utils.GlobalState) {
-	rg := r.GinRouter.Group(ROOT_API)
+	rg := r.GinRouter.Group(PROBES_API)
 	health.HealthRoutes(rg, state)
 }
 
