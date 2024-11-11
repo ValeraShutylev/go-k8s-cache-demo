@@ -1,0 +1,32 @@
+@startuml "get data from cache"
+participant s as "system" 
+participant c as "go-cache"
+database st as "storage"
+
+s -> c : "Put Object"
+activate c
+
+alt Request not valid
+    c -> s : "Invalid request. HTTP 400, Bad request"
+else 
+    c -> c : "Calculate Object expiration time"
+    c -> c : "Check Memory Cache contains Object"
+    alt Object not in Memory Cache
+        c -> st : "Request data store in Storage"
+        activate st
+        st -> st : "Check Storage contains Object"
+        alt Object not in Storage and Memory Cache
+            st -> st: "Create New file and save object data"
+            st -> c : "Object stored as New file"
+            c -> c : "Object stored in Memory Cache"
+            c -> s : "Object successfully stored. HTTP 201, Created"
+        else Object presents in Storage and Memory Cache
+            st -> st : "Rewrite file with updated object"
+            st -> c : "Object updated"
+            deactivate st
+            c -> c : "Update object in Memory Cache"
+            c -> s : "Object updated. HTTP 200, Ok"  
+        end
+    end
+end
+@enduml

@@ -1,0 +1,30 @@
+@startuml "get data from cache"
+participant s as "system" 
+participant c as "go-cache"
+database st as "storage"
+
+s -> c : "Get Object by ObjectId"
+activate c
+
+alt Request not valid
+    c -> s : "Invalid request. HTTP 400, Bad request"
+else 
+    c -> c : "Check Memory Cache contains Object"
+    alt Object not in Memory Cache
+        c -> st : "Request data from Storage"
+        activate st
+        st -> st : "Check Storage contains Object"
+        alt Object not in Storage
+            st -> c : "Object not found"
+            c -> s : "Object not found. HTTP 404, Object not found"
+        else Object presents in Storage
+            st -> c : "Object found"
+            deactivate st
+            c -> c : "Store data from storage to Memory Cache"
+            c -> s : "Object found. HTTP 200, Ok"  
+        end
+    else Object found in Memory Cache
+        c -> s : "Object found. HTTP 200, Ok"
+    end
+end
+@enduml
