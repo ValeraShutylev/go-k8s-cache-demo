@@ -6,4 +6,6 @@ Go k8 cache service is an application to store JSON-objects 'in-memory' key-base
 
 [Architecture](/docs/Architecture.md)
 
+[Installation Notes](/docs/InstallationNotes.md)
+
 [Improvements](/docs/Improvements.md)
