@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "go-k8s-cache-demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Object by ID",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "{{host}}:{{port}}/objects/{{objectId}}"
+      }
+    },
+    {
+      "name": "PUT Object by ID",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "expires_at",
+            "value": "2024-11-11 20:29:10",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "{{host}}:{{port}}/objects/{{objectId}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\" : \"adam\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bruno",
+      "event": []
+    },
+    {
+      "name": "GET prometheus metrics",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{host}}:{{port}}/metrics"
+      }
+    },
+    {
+      "name": "Healthcheck",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{host}}:{{port}}/health"
+      }
+    },
+    {
+      "name": "Readiness check",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{host}}:{{port}}/ready"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "port",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "objectId",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
