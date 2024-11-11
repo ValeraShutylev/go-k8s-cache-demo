@@ -1,0 +1,164 @@
+{
+    "info": {
+        "name": "go-k8s-cache-demo",
+        "_postman_id": "f971d5cc-625d-4739-a814-5fcb01a84f20",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "GET Object by ID",
+            "request": {
+                "url": {
+                    "raw": "{{host}}:{{port}}/objects/{{objectId}}",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "port": "{{port}}",
+                    "path": [
+                        "objects",
+                        "{{objectId}}"
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "default"
+                    }
+                ]
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "name": "GET prometheus metrics",
+            "request": {
+                "url": {
+                    "raw": "{{host}}:{{port}}/metrics",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "port": "{{port}}",
+                    "path": [
+                        "metrics"
+                    ]
+                },
+                "method": "GET",
+                "header": []
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "name": "Healthcheck",
+            "request": {
+                "url": {
+                    "raw": "{{host}}:{{port}}/health",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "port": "{{port}}",
+                    "path": [
+                        "health"
+                    ]
+                },
+                "method": "GET",
+                "header": []
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "name": "PUT Object by ID",
+            "request": {
+                "url": {
+                    "raw": "{{host}}:{{port}}/objects/{{objectId}}",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "port": "{{port}}",
+                    "path": [
+                        "objects",
+                        "{{objectId}}"
+                    ]
+                },
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "expires_at",
+                        "value": "2024-11-11 20:29:10",
+                        "type": "default"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "default"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\" : \"adam\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "name": "Readiness check",
+            "request": {
+                "url": {
+                    "raw": "{{host}}:{{port}}/ready",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "port": "{{port}}",
+                    "path": [
+                        "ready"
+                    ]
+                },
+                "method": "GET",
+                "header": []
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "name": "bruno",
+            "item": []
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "host",
+            "value": "",
+            "type": "default"
+        },
+        {
+            "key": "port",
+            "value": "",
+            "type": "default"
+        },
+        {
+            "key": "objectId",
+            "value": "",
+            "type": "default"
+        }
+    ]
+}
